@@ -2,8 +2,6 @@ name: Deploy static content to Pages
 
 on:
     push:
-        branches: ['main']
-
     workflow_dispatch:
 
 permissions:
@@ -32,6 +30,7 @@ jobs:
               run: npm run lint
     deploy:
         needs: lint
+        if: github.ref == 'refs/heads/main'
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
