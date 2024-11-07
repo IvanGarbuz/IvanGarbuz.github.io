@@ -1,10 +1,16 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.tsx';
+import { Button, Container } from '@mui/material';
+import { useState } from 'react';
 
-createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <App />
-    </StrictMode>
-);
+const Main = () => {
+    const [count, setCount] = useState(1);
+
+    return (
+        <Container>
+            hello world count is {count} <br />
+            to increment count, click the button below <br />
+            <Button onClick={() => setCount(count + 1)}>increment</Button>
+        </Container>
+    );
+};
+
+export default Main;
